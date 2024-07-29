@@ -15,34 +15,35 @@
             height: 100vh;
             background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
-            overflow: hidden;
+            padding: 20px; /* Add padding for small screens */
+            box-sizing: border-box; /* Include padding in height calculation */
         }
 
         .container {
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            width: 90%;
-            max-width: 600px;
-            overflow: hidden; /* Prevent overflow */
+            max-width: 600px; /* Set a max width */
+            width: 100%; /* Full width on smaller screens */
+            overflow-wrap: break-word; /* Allow text to wrap */
         }
 
         h1 {
             margin: 0;
-            font-size: 1.8rem; /* Adjusted size */
+            font-size: 2rem; /* Adjust font size for better visibility */
             line-height: 1.2;
-            position: relative;
+            white-space: normal; /* Allow text wrapping */
         }
 
         .typing-container {
             display: inline-block;
             border-right: 2px solid #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            font-size: 1.8rem; /* Adjusted size */
+            white-space: nowrap; /* Keep typing effect */
+            overflow: hidden; /* Hide overflow */
+            font-size: 1.8rem;
             animation: blink-caret 0.75s step-end infinite;
         }
 
@@ -54,20 +55,27 @@
         .shadow {
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem; /* Smaller font for mobile */
-            }
-            .typing-container {
-                font-size: 1.5rem; /* Smaller font for mobile */
-            }
-        }
 
         .subtext {
             margin-top: 20px;
             font-size: 1.2rem;
             color: #e0e0e0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem; /* Smaller heading on mobile */
+            }
+            .typing-container {
+                font-size: 1.5rem; /* Adjust typing text size */
+                display: block; /* Allow block display for wrapping */
+                white-space: normal; /* Enable wrapping on mobile */
+                width: auto; /* Ensure full width for wrapping */
+            }
+            .subtext {
+                font-size: 1rem; /* Adjust subtext size */
+            }
         }
     </style>
 </head>

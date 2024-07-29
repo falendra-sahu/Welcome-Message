@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Falendra Sahu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem; /* Adjusted size */
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .typing-container {
+            display: inline-block;
+            border-right: 2px solid #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 1.8rem; /* Adjusted size */
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ffffff; }
+        }
+
+        .shadow {
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem; /* Smaller font for mobile */
+            }
+            .typing-container {
+                font-size: 1.5rem; /* Smaller font for mobile */
+            }
+        }
+
+        .subtext {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="typing-container shadow" id="typing-text"></h1>
+        <p class="subtext">Exploring new possibilities in technology.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textElement = document.getElementById('typing-text');
+            const text = "Welcome! My name is Falendra Sahu ❤️";
+            let index = 0;
+            let isDeleting = false;
+
+            function type() {
+                if (!isDeleting) {
+                    if (index < text.length) {
+                        textElement.textContent += text[index++];
+                        setTimeout(type, 100);
+                    } else {
+                        isDeleting = true;
+                        setTimeout(type, 2000);
+                    }
+                } else {
+                    if (index > 0) {
+                        textElement.textContent = textElement.textContent.slice(0, --index);
+                        setTimeout(type, 50);
+                    } else {
+                        isDeleting = false;
+                        setTimeout(type, 500);
+                    }
+                }
+            }
+
+            type();
+        });
+    </script>
+</body>
+</html>
